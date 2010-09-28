@@ -1,0 +1,43 @@
+<h1>New mitigation</h1>
+
+<% form_for(@mitigation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :audit %><br />
+    <%= f.text_field :audit %>
+  </p>
+  <p>
+    <%= f.label :risk %><br />
+    <%= f.text_field :risk %>
+  </p>
+  <p>
+    <%= f.label :issue %><br />
+    <%= f.text_field :issue %>
+  </p>
+  <p>
+    <%= f.label :scope %><br />
+    <%= f.text_field :scope %>
+  </p>
+  <p>
+    <%= f.label :recommendation %><br />
+    <%= f.text_field :recommendation %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :responsible %><br />
+    <%= f.text_field :responsible %>
+  </p>
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_field :notes %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', mitigations_path %>

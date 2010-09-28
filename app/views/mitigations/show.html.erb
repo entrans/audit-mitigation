@@ -1,0 +1,43 @@
+<p>
+  <b>Audit:</b>
+  <%=h @mitigation.audit %>
+</p>
+
+<p>
+  <b>Risk:</b>
+  <%=h @mitigation.risk %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%=h @mitigation.issue %>
+</p>
+
+<p>
+  <b>Scope:</b>
+  <%=h @mitigation.scope %>
+</p>
+
+<p>
+  <b>Recommendation:</b>
+  <%=h @mitigation.recommendation %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @mitigation.status %>
+</p>
+
+<p>
+  <b>Responsible:</b>
+  <%=h @mitigation.responsible %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @mitigation.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_mitigation_path(@mitigation) %> |
+<%= link_to 'Back', mitigations_path %>

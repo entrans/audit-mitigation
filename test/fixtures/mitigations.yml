@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  audit: MyString
+  risk: 1
+  issue: MyString
+  scope: MyString
+  recommendation: MyString
+  status: 1
+  responsible: MyString
+  notes: MyString
+
+two:
+  audit: MyString
+  risk: 1
+  issue: MyString
+  scope: MyString
+  recommendation: MyString
+  status: 1
+  responsible: MyString
+  notes: MyString

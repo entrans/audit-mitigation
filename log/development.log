@@ -1,0 +1,542 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMitigations (20100928230743)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "mitigations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "audit" varchar(255), "risk" integer, "issue" varchar(255), "scope" varchar(255), "recommendation" varchar(255), "status" integer, "responsible" varchar(255), "notes" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100928230743')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("mitigations")[0m
+
+
+Processing MitigationsController#index (for 127.0.0.1 at 2010-09-28 19:13:48) [GET]
+  [4;36;1mMitigation Load (0.4ms)[0m   [0;1mSELECT * FROM "mitigations" [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/index
+Completed in 20ms (View: 15, DB: 0) | 200 OK [http://localhost/mitigations]
+
+
+Processing MitigationsController#new (for 127.0.0.1 at 2010-09-28 19:14:13) [GET]
+Rendering template within layouts/mitigations
+Rendering mitigations/new
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://localhost/mitigations/new]
+
+
+Processing MitigationsController#create (for 127.0.0.1 at 2010-09-28 19:14:32) [POST]
+  Parameters: {"commit"=>"Create", "mitigation"=>{"responsible"=>"ajkdf;adjfa;j", "scope"=>"aldkjfa;dljf", "notes"=>"adsjkf;aldkfj", "recommendation"=>"ajd;fakdjflk", "audit"=>"a;jf;adj;", "issue"=>"adsfadjkl", "risk"=>"1", "status"=>"2"}, "authenticity_token"=>"DmmmjOy73TuOBuMFKU+a4YyF8NRn6PV6RetNrZDSYb0="}
+  [4;35;1mMitigation Create (0.4ms)[0m   [0mINSERT INTO "mitigations" ("scope", "responsible", "created_at", "notes", "updated_at", "audit", "recommendation", "issue", "risk", "status") VALUES('aldkjfa;dljf', 'ajkdf;adjfa;j', '2010-09-28 23:14:32', 'adsjkf;aldkfj', '2010-09-28 23:14:32', 'a;jf;adj;', 'ajd;fakdjflk', 'adsfadjkl', 1, 2)[0m
+Redirected to http://localhost:3000/mitigations/1
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/mitigations]
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:14:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMitigation Load (0.2ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 1) [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/show
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/mitigations/1]
+
+
+Processing MitigationsController#index (for 127.0.0.1 at 2010-09-28 19:14:35) [GET]
+  [4;35;1mMitigation Load (0.4ms)[0m   [0mSELECT * FROM "mitigations" [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/mitigations]
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:14:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMitigation Load (0.2ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 1) [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/mitigations/1]
+
+
+Processing MitigationsController#edit (for 127.0.0.1 at 2010-09-28 19:15:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMitigation Load (0.2ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 1) [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/edit
+Completed in 84ms (View: 15, DB: 0) | 200 OK [http://localhost/mitigations/1/edit]
+
+
+Processing MitigationsController#1 (for 127.0.0.1 at 2010-09-28 19:15:22) [GET]
+  Parameters: {"id"=>"show"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:15:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMitigation Load (0.2ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 1) [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/mitigations/show/1]
+
+
+Processing MitigationsController#index (for 127.0.0.1 at 2010-09-28 19:15:58) [GET]
+  [4;35;1mMitigation Load (0.4ms)[0m   [0mSELECT * FROM "mitigations" [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/index
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/mitigations]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mMitigation Load (0.3ms)[0m   [0mSELECT * FROM "mitigations" [0m
+  [4;36;1mMitigation Load (0.4ms)[0m   [0;1mSELECT * FROM "mitigations" LIMIT 1[0m
+  [4;35;1mMitigation Load (0.4ms)[0m   [0mSELECT * FROM "mitigations" ORDER BY mitigations.id DESC LIMIT 1[0m
+
+
+Processing MitigationsController#index (for 127.0.0.1 at 2010-09-28 19:23:26) [GET]
+  [4;36;1mMitigation Load (0.4ms)[0m   [0;1mSELECT * FROM "mitigations" [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/index
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/mitigations]
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:27:33) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (103.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#edit (for 127.0.0.1 at 2010-09-28 19:29:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMitigation Load (0.2ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 1) [0m
+Rendering template within layouts/mitigations
+Rendering mitigations/edit
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/mitigations/1/edit]
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:28) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.3ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:53) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (41.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:54) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (102.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:54) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:54) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (104.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:32:54) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:33:24) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (102.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:33:24) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:33:25) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (102.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:33:25) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:16) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:17) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:17) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (101.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:18) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:19) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (105.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:34:19) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mMitigation Load (0.1ms)[0m   [0mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing MitigationsController#show (for 127.0.0.1 at 2010-09-28 19:35:22) [GET]
+  Parameters: {"id"=>"search"}
+  [4;36;1mMitigation Load (0.1ms)[0m   [0;1mSELECT * FROM "mitigations" WHERE ("mitigations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Mitigation with ID=search):
+  app/controllers/mitigations_controller.rb:16:in `show'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/knotworx/.rvm/rubies/ruby-1.8.7-p302/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)

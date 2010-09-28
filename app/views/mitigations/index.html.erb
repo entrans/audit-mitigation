@@ -1,0 +1,34 @@
+<h1>Audit Mitigation Database</h1>
+
+<table>
+  <tr>
+    <th>Audit</th>
+    <th>Risk</th>
+    <th>Issue</th>
+    <th>Scope</th>
+    <th>Recommendation</th>
+    <th>Status</th>
+    <th>Responsible</th>
+    <th>Notes</th>
+  </tr>
+
+<% @mitigations.each do |mitigation| %>
+  <tr>
+    <td><%=h mitigation.audit %></td>
+    <td><%=h mitigation.risk %></td>
+    <td><%=h mitigation.issue %></td>
+    <td><%=h mitigation.scope %></td>
+    <td><%=h mitigation.recommendation %></td>
+    <td><%=h mitigation.status %></td>
+    <td><%=h mitigation.responsible %></td>
+    <td><%=h mitigation.notes %></td>
+    <td><%= link_to 'Show', mitigation %></td>
+    <td><%= link_to 'Edit', edit_mitigation_path(mitigation) %></td>
+    <td><%= link_to 'Destroy', mitigation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New mitigation', new_mitigation_path %>
